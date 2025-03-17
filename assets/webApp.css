@@ -23,7 +23,6 @@ body {
 
 .header {
 	width: 100%;
-	margin-bottom: 30px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -112,7 +111,6 @@ body {
 .timer-options {
 	display: flex;
 	gap: 15px;
-	margin-bottom: 40px;
 	flex-wrap: wrap;
 	justify-content: center;
 }
@@ -183,7 +181,6 @@ body {
 
 .footer {
 	width: 100%;
-	margin-top: 30px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
