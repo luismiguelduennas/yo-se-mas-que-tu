@@ -92,7 +92,7 @@ function startGame() {
 	const answerCounter = document.getElementById('answerCounter');
 	answerCounter.textContent = '0';
 	answerCounter.style.backgroundColor = 'var(--red-color)';
-	answerCounter.style.fontSize = '30px';
+	answerCounter.style.fontSize = '80px';
 	
 	// Ocultar opciones de tiempo
 	document.getElementById('timerOptions').style.display = 'none';
@@ -200,7 +200,7 @@ function endGame() {
 	
 	// Hacer el contador de respuestas más grande
 	const answerCounter = document.getElementById('answerCounter');
-	answerCounter.style.fontSize = '30px';
+	answerCounter.style.fontSize = '80px';
 	answerCounter.onclick = null; // Desactivar incremento al hacer clic
 }
 
@@ -257,6 +257,7 @@ function resetGame() {
 	answerCounter.style.fontSize = '30px';
 	answerCounter.classList.remove('rainbow');
 	answerCounter.onclick = toggleAnswerOptions;
+	timerDisplay.onclick = toggleAnswerOptions;
 	
 	// Ocultar el objetivo
 	document.getElementById('targetCounter').style.display = 'none';
@@ -271,4 +272,7 @@ function resetGame() {
 	
 	// Limpiar mensaje
 	document.getElementById('message').textContent = '';
+
+	const options = document.getElementById('answerOptions');
+	options.style.display = 'none';
 }
