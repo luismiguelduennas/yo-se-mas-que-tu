@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>¡Yo sé más que tú! - Contador</title>
+	<!-- Enlazamos el CSS externo -->
+	<link rel="stylesheet" href="assets/webApp.css">
+</head>
+<body>
+  <div class="header">
+      <div id="answerCounter" class="answer-counter" onclick="toggleAnswerOptions()">Definir número de respuestas</div>
+      <div id="answerOptions" class="answer-options"></div>
+      <div id="targetCounter" class="target-counter">0</div>
+  </div>
+  
+  <div class="main">
+		<div id="timerOptions" class="timer-options">
+		  <div class="timer-option" data-value="10" onclick="selectTime(10)">10 seg.</div>
+		  <div class="timer-option" data-value="30" onclick="selectTime(30)">30 seg.</div>
+		  <div class="timer-option" data-value="40" onclick="selectTime(40)">40 seg.</div>
+		  <div class="timer-option" data-value="50" onclick="selectTime(50)">50 seg.</div>
+		  <div class="timer-option" data-value="60" onclick="selectTime(60)">60 seg.</div>
+		</div>
+      
+		<div id="timerDisplay" class="timer-display">
+		  <img id="donkeyImage" src="media/image/burro.png" alt="Burro">
+		  <div id="timerCircle" class="timer-circle">30</div>
+		</div>
+      
+		<div id="message" class="message"></div>
+  </div>
+  
+  <div class="footer">
+      <button id="actionButton" class="button" onclick="toggleGame()" disabled>COMENZAR</button>
+      <div class="home-icon" onclick="resetGame()">🏠</div>
+  </div>
+  
+  <!-- Elementos de audio para los sonidos -->
+  <audio id="burritoAudio" src="media/audio/FX_Donkey.mp3" preload="auto"></audio>
+  <audio id="aplausoAudio" src="media/audio/FX_Applause.mp3" preload="auto"></audio>
+  <audio id="vamosAudio" src="media/audio/FX_Vamos.m4a" preload="auto"></audio>
+  <audio id="ultimosSegundosAudio" src="media/audio/FX_Countdown.mp3" preload="auto"></audio>
+
+  <!-- Enlazamos el JavaScript externo -->
+  <script src="assets/webApp.js"></script>
+</body>
+</html>
