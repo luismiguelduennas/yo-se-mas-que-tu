@@ -92,7 +92,7 @@ function startGame() {
 	const answerCounter = document.getElementById('answerCounter');
 	answerCounter.textContent = '0';
 	answerCounter.style.backgroundColor = 'var(--red-color)';
-	answerCounter.style.fontSize = '60px';
+	answerCounter.style.fontSize = '30px';
 	
 	// Ocultar opciones de tiempo
 	document.getElementById('timerOptions').style.display = 'none';
@@ -200,7 +200,7 @@ function endGame() {
 	
 	// Hacer el contador de respuestas más grande
 	const answerCounter = document.getElementById('answerCounter');
-	answerCounter.style.fontSize = '60px';
+	answerCounter.style.fontSize = '30px';
 	answerCounter.onclick = null; // Desactivar incremento al hacer clic
 }
 
@@ -208,7 +208,7 @@ function showMessage(result) {
 	// Mostrar mensaje
 	if (result < 0) {
 		cartas = (result == -1) ? 'carta':'cartas';
-		mensaje = 'Eres un BURRO. \n Tienes que robar ' + (result*(-1)) + ' ' + cartas + ' de burrito';
+		mensaje = 'Eres un BURRO. \n Roba ' + (result*(-1)) + ' ' + cartas + ' de burrito';
 	
 		// Reproducir el sonido del burrito
 		burritoAudio.play().catch(error => {
@@ -252,9 +252,9 @@ function resetGame() {
 	
 	// Resetear contador de respuestas
 	const answerCounter = document.getElementById('answerCounter');
-	answerCounter.textContent = 'Definir número de respuestas';
+	answerCounter.textContent = 'Número de respuestas pujadas';
 	answerCounter.style.backgroundColor = 'var(--secondary-color)';
-	answerCounter.style.fontSize = '60px';
+	answerCounter.style.fontSize = '30px';
 	answerCounter.classList.remove('rainbow');
 	answerCounter.onclick = toggleAnswerOptions;
 	
