@@ -1,0 +1,363 @@
+:root {
+	--primary-color: #9c2760;
+	--secondary-color: #228B22;
+	--red-color: #E53935;
+	--white: #ffffff;
+}
+
+body {
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 100vh;
+	margin: 0;
+	background-color: var(--primary-color);
+	color: var(--white);
+	text-align: center;
+	padding: 20px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.header {
+	width: 100%;
+	margin-bottom: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	margin-top: 20px;
+}
+
+.answer-counter {
+	background-color: var(--secondary-color);
+	color: var(--white);
+	border-radius: 20px;
+	font-size: 60px;
+	font-weight: bold;
+	padding: 30px 40px;
+	margin: 0 auto;
+	cursor: pointer;
+	transition: transform 0.2s;
+	user-select: none;
+	min-width: 250px;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.answer-counter:hover {
+	transform: scale(1.05);
+}
+
+.target-counter {
+	background-color: #000;
+	color: var(--white);
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	font-size: 60px;
+	position: absolute;
+	right: 20px;
+	font-weight: bold;
+	margin-right: 20px;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.answer-options {
+	position: absolute;
+	top: 120%;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: var(--white);
+	border-radius: 15px;
+	padding: 20px;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 15px;
+	z-index: 10;
+	max-width: 90%;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	display: none;
+}
+
+.answer-option {
+	padding: 18px;
+	cursor: pointer;
+	background-color: #f1f1f1;
+	color: #333;
+	border-radius: 12px;
+	transition: background-color 0.2s;
+	font-size: 28px;
+	font-weight: bold;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.answer-option:hover {
+	background-color: #ddd;
+}
+
+.main {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.timer-options {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 40px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.timer-option {
+	padding: 18px 35px;
+	border: 4px solid var(--white);
+	border-radius: 20px;
+	cursor: pointer;
+	font-size: 32px;
+	transition: background-color 0.3s;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.timer-option.selected {
+	background-color: var(--white);
+	color: var(--primary-color);
+	font-weight: bold;
+}
+
+/* Estilos para el contenedor del timer y el burro */
+.timer-display {
+	width: 350px;
+	height: 350px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 30px 0;
+	position: relative;
+	box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+	overflow: visible;
+}
+
+/* Estilos para la imagen del burro */
+#donkeyImage {
+	position: absolute;
+	top: 50%;
+	right: 100%; /* Inicialmente fuera de la vista, a la izquierda */
+	transform: translateY(-50%);
+	height: 300px;
+	z-index: 1; /* Detrás del círculo del timer */
+	opacity: 0;
+	transition: right 1.5s ease-out, opacity 1.5s ease-in;
+}
+
+/* Clase para cuando el burro debe mostrarse */
+.show-donkey #donkeyImage {
+	right: 60%; /* Se asoma parcialmente */
+	opacity: 1;
+}
+
+.timer-circle {
+	width: 280px;
+	height: 280px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 120px;
+	border: 8px solid var(--secondary-color);
+	box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+	position: relative;
+	z-index: 2; /* Por encima del burro */
+}
+
+.footer {
+	width: 100%;
+	margin-top: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.button {
+	background-color: #222;
+	color: var(--white);
+	border: none;
+	border-radius: 20px;
+	padding: 30px 50px;
+	font-size: 60px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	width: 90%;
+	max-width: 600px;
+	margin-bottom: 30px;
+	box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.button:hover:not(:disabled) {
+	background-color: #444;
+}
+
+.button:disabled {
+	background-color: #555;
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+.home-icon {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	font-size: 48px;
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.2);
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.home-icon:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
+.message {
+	font-size: 48px;
+	margin-top: 30px;
+	color: var(--white);
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Estilos para el contador multicolor */
+.rainbow {
+	background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+	background-size: 1800% 1800%;
+	animation: rainbow 5s ease infinite;
+}
+
+@keyframes rainbow { 
+	0% { background-position: 0% 82% }
+	50% { background-position: 100% 19% }
+	100% { background-position: 0% 82% }
+}
+
+/* Responsive para asegurar visibilidad en todos los dispositivos */
+@media (max-width: 768px) {
+	.answer-counter {
+		font-size: 60px;
+		padding: 25px 30px;
+		min-width: 200px;
+	}
+	
+	.target-counter {
+		width: 90px;
+		height: 90px;
+		font-size: 60px;
+	}
+	
+	.timer-option {
+		font-size: 28px;
+		padding: 15px 30px;
+	}
+	
+	.timer-display {
+		width: 300px;
+		height: 300px;
+	}
+	
+	.timer-circle {
+		width: 240px;
+		height: 240px;
+		font-size: 100px;
+	}
+	
+	.button {
+		font-size: 36px;
+		padding: 25px 40px;
+	}
+	
+	#donkeyImage {
+		height: 240px;
+	}
+}
+
+@media (max-width: 480px) {
+	.answer-counter {
+		font-size: 56px;
+		padding: 20px 25px;
+		min-width: 180px;
+	}
+	
+	.target-counter {
+		width: 80px;
+		height: 80px;
+		font-size: 56px;
+		margin-right: 10px;
+	}
+	
+	.answer-options {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	
+	.answer-option {
+		font-size: 24px;
+		padding: 15px;
+	}
+	
+	.timer-options {
+		gap: 10px;
+	}
+	
+	.timer-option {
+		font-size: 24px;
+		padding: 12px 20px;
+	}
+	
+	.timer-display {
+		width: 250px;
+		height: 250px;
+	}
+	
+	.timer-circle {
+		width: 200px;
+		height: 200px;
+		font-size: 80px;
+	}
+	
+	.message {
+		font-size: 36px;
+	}
+	
+	.button {
+		font-size: 32px;
+		padding: 20px 30px;
+	}
+	
+	.home-icon {
+		width: 60px;
+		height: 60px;
+		font-size: 36px;
+	}
+	
+	#donkeyImage {
+		height: 180px;
+	}
+}
