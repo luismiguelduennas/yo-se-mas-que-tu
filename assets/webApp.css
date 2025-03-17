@@ -35,7 +35,7 @@ body {
 	background-color: var(--secondary-color);
 	color: var(--white);
 	border-radius: 20px;
-	font-size: 60px;
+	font-size: 30px;
 	font-weight: bold;
 	padding: 30px 40px;
 	margin: 0 auto;
@@ -237,7 +237,8 @@ body {
 }
 
 .message {
-	font-size: 48px;
+	white-space: pre-line;
+	font-size: 32px;
 	margin-top: 30px;
 	color: var(--white);
 	text-transform: uppercase;
@@ -262,7 +263,7 @@ body {
 /* Responsive para asegurar visibilidad en todos los dispositivos */
 @media (max-width: 768px) {
 	.answer-counter {
-		font-size: 60px;
+		font-size: 30px;
 		padding: 25px 30px;
 		min-width: 200px;
 	}
@@ -301,7 +302,7 @@ body {
 
 @media (max-width: 480px) {
 	.answer-counter {
-		font-size: 56px;
+		font-size: 26px;
 		padding: 20px 25px;
 		min-width: 180px;
 	}
@@ -343,7 +344,7 @@ body {
 	}
 	
 	.message {
-		font-size: 36px;
+		font-size: 28px;
 	}
 	
 	.button {

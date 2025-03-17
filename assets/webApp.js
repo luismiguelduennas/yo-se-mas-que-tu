@@ -207,7 +207,7 @@ function endGame() {
 function showMessage(result) {
 	// Mostrar mensaje
 	if (result < 0) {
-		mensaje = 'Eres un BURRO. \n Tienes que robar ' + (result*(-1))+ ' cartas de burrito HEE-HAW HEE-HAW';
+		mensaje = 'Eres un BURRO. \n Tienes que robar ' + (result*(-1))+ ' cartas de burrito';
 	
 		// Reproducir el sonido del burrito
 		burritoAudio.play().catch(error => {
